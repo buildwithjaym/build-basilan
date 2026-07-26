@@ -44,7 +44,7 @@ const organizationJsonLd = {
   url: siteUrl,
   logo: {
     "@type": "ImageObject",
-    url: `${siteUrl}/build-basilan-logo.png`,
+    url: `${siteUrl}/build-basilan-og.png`,
     width: 1248,
     height: 1248,
   },
