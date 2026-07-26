@@ -24,8 +24,8 @@ const manrope = Manrope({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "http://localhost:3000";
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
+  "https://build-basilan.online";
 
 const siteName = "Build Basilan";
 
@@ -35,6 +35,12 @@ const siteTitle =
 const siteDescription =
   "Build Basilan is a community initiative helping NGOs, youth organizations, and community groups in Basilan strengthen their digital presence through accessible and modern websites.";
 
+const logoPath = "/build-basilan-logo.png";
+const socialImagePath = "/build-basilan-og.png";
+
+const logoUrl = `${siteUrl}${logoPath}`;
+const socialImageUrl = `${siteUrl}${socialImagePath}`;
+
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -42,25 +48,34 @@ const organizationJsonLd = {
   name: siteName,
   alternateName: "Build Basilan Initiative",
   url: siteUrl,
+
   logo: {
     "@type": "ImageObject",
-    url: `${siteUrl}/build-basilan-og.png`,
-    width: 1248,
-    height: 1248,
+    url: logoUrl,
   },
-  image: `${siteUrl}/build-basilan-og.jpg`,
+
+  image: {
+    "@type": "ImageObject",
+    url: socialImageUrl,
+    width: 1200,
+    height: 630,
+  },
+
   description: siteDescription,
   slogan: "Building a Better Basilan, One Website at a Time.",
   foundingDate: "2026",
+
   founder: {
     "@type": "Person",
     name: "Jaymar Maruji",
     jobTitle: "Founder and Solo Developer",
   },
+
   areaServed: {
     "@type": "AdministrativeArea",
     name: "Basilan, Philippines",
   },
+
   knowsAbout: [
     "Community technology",
     "Website development",
@@ -80,9 +95,12 @@ const websiteJsonLd = {
   url: siteUrl,
   description: siteDescription,
   inLanguage: "en-PH",
+
   publisher: {
     "@id": `${siteUrl}/#organization`,
   },
+
+  image: socialImageUrl,
 };
 
 export const metadata: Metadata = {
@@ -116,6 +134,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Jaymar Maruji",
+      url: siteUrl,
     },
   ],
 
@@ -125,43 +144,53 @@ export const metadata: Metadata = {
   category: "Community Technology",
 
   alternates: {
-    canonical: "/",
+    canonical: siteUrl,
+
     languages: {
-      "en-PH": "/",
+      "en-PH": siteUrl,
     },
   },
 
   openGraph: {
-  type: "website",
-  locale: "en_PH",
-  url: "/",
-  siteName: "Build Basilan",
-  title: "Build Basilan | Technology That Builds Communities",
-  description:
-    "Building a Better Basilan, One Website at a Time. Helping community organizations strengthen their digital presence through accessible websites.",
-  images: [
-    {
-      url: "/build-basilan-og.png",
-      width: 1200,
-      height: 630,
-      alt: "Build Basilan, Technology That Builds Communities",
-      type: "image/png",
-    },
-  ],
-},
+    type: "website",
+    locale: "en_PH",
+    url: siteUrl,
+    siteName,
+    title: siteTitle,
+    description:
+      "Building a Better Basilan, One Website at a Time. Helping community organizations strengthen their digital presence through accessible websites.",
 
-twitter: {
-  card: "summary_large_image",
-  title: "Build Basilan | Technology That Builds Communities",
-  description:
-    "A community initiative helping organizations in Basilan grow their impact through accessible digital solutions.",
-  images: ["/build-basilan-og.png"],
-},
+    images: [
+      {
+        url: socialImageUrl,
+        secureUrl: socialImageUrl,
+        width: 1200,
+        height: 630,
+        alt: "Build Basilan, Technology That Builds Communities",
+        type: "image/png",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description:
+      "A community initiative helping organizations in Basilan grow their impact through accessible digital solutions.",
+
+    images: [
+      {
+        url: socialImageUrl,
+        alt: "Build Basilan, Technology That Builds Communities",
+      },
+    ],
+  },
 
   robots: {
     index: true,
     follow: true,
     nocache: false,
+
     googleBot: {
       index: true,
       follow: true,
@@ -179,14 +208,16 @@ twitter: {
         sizes: "any",
       },
       {
-        url: "/build-basilan-logo.png",
+        url: logoPath,
         type: "image/png",
       },
     ],
+
     shortcut: "/favicon.ico",
+
     apple: [
       {
-        url: "/build-basilan-logo.png",
+        url: logoPath,
         sizes: "180x180",
         type: "image/png",
       },
@@ -203,8 +234,6 @@ twitter: {
     "apple-mobile-web-app-title": siteName,
     "mobile-web-app-capable": "yes",
   },
-
-  
 };
 
 export const viewport: Viewport = {
@@ -212,6 +241,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   viewportFit: "cover",
+
   themeColor: [
     {
       media: "(prefers-color-scheme: light)",
@@ -222,6 +252,7 @@ export const viewport: Viewport = {
       color: "#061a2c",
     },
   ],
+
   colorScheme: "light dark",
 };
 
@@ -267,11 +298,16 @@ export default function RootLayout({
         />
 
         {children}
+
         <Toaster
           position="top-right"
           richColors
           closeButton
-          toastOptions={{ classNames: { toast: "rounded-2xl" } }}
+          toastOptions={{
+            classNames: {
+              toast: "rounded-2xl",
+            },
+          }}
         />
       </body>
     </html>
