@@ -132,36 +132,31 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    type: "website",
-    locale: "en_PH",
-    url: "/",
-    siteName,
-    title: siteTitle,
-    description:
-      "Building a Better Basilan, One Website at a Time. Helping community organizations strengthen their digital presence through accessible websites.",
-    images: [
-      {
-        url: "/build-basilan-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Build Basilan, Technology That Builds Communities",
-        type: "image/jpeg",
-      },
-    ],
-  },
+  type: "website",
+  locale: "en_PH",
+  url: "/",
+  siteName: "Build Basilan",
+  title: "Build Basilan | Technology That Builds Communities",
+  description:
+    "Building a Better Basilan, One Website at a Time. Helping community organizations strengthen their digital presence through accessible websites.",
+  images: [
+    {
+      url: "/build-basilan-og.png",
+      width: 1200,
+      height: 630,
+      alt: "Build Basilan, Technology That Builds Communities",
+      type: "image/png",
+    },
+  ],
+},
 
-  twitter: {
-    card: "summary_large_image",
-    title: siteTitle,
-    description:
-      "A community initiative helping organizations in Basilan grow their impact through accessible digital solutions.",
-    images: [
-      {
-        url: "/build-basilan-og.jpg",
-        alt: "Build Basilan, Technology That Builds Communities",
-      },
-    ],
-  },
+twitter: {
+  card: "summary_large_image",
+  title: "Build Basilan | Technology That Builds Communities",
+  description:
+    "A community initiative helping organizations in Basilan grow their impact through accessible digital solutions.",
+  images: ["/build-basilan-og.png"],
+},
 
   robots: {
     index: true,
