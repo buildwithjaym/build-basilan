@@ -1353,7 +1353,7 @@ export default function HomePage() {
               <div className="brand-gradient relative overflow-hidden rounded-3xl px-6 py-14 text-center text-white shadow-[var(--shadow-primary)] sm:px-10 lg:px-16">
                 <div className="relative mx-auto max-w-3xl">
                   <Badge className="rounded-full border-white/20 bg-white/15 text-white">
-                    Applications opening soon
+                    Applications is now open!!
                   </Badge>
 
                   <h2 className="mt-6 font-heading text-4xl font-bold tracking-[-0.04em] text-white sm:text-5xl">
