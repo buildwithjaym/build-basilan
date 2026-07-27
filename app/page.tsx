@@ -6,7 +6,11 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { motion, MotionConfig } from "motion/react";
+import {
+  motion,
+  MotionConfig,
+  useReducedMotion,
+} from "motion/react";
 import {
   ArrowRight,
   BadgeCheck,
@@ -126,7 +130,7 @@ function FounderTypingQuote() {
 
       <span
         aria-hidden="true"
-        className="font-heading text-2xl font-bold leading-[1.25] tracking-[-0.025em] text-white sm:text-3xl lg:text-[2rem]"
+        className="font-heading text-xl font-bold leading-[1.25] tracking-[-0.025em] text-white sm:text-2xl xl:text-3xl"
       >
         “{displayedText}
 
@@ -328,7 +332,22 @@ const selectionCriteria = [
 
 const applicationUrl = "https://forms.gle/9nweWPH4JneA5NjQ6";
 
-const applicationDeadline = "To be announced";
+const applicationDeadline = "July 30, 2026";
+
+const announcementItems = [
+  {
+    icon: BadgeCheck,
+    text: "Applications for the first Build Basilan website project are now open.",
+  },
+  {
+    icon: CalendarDays,
+    text: `Application deadline: ${applicationDeadline}`,
+  },
+  {
+    icon: Globe2,
+    text: "Open to NGOs, youth organizations, and community groups in Basilan.",
+  },
+];
 
 const applyButtonClass = cn(
   buttonVariants({
@@ -462,55 +481,82 @@ function SectionHeading({
     </Reveal>
   );
 }
+
 function ApplicationStatusBar() {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <div className="border-b border-white/10 bg-brand-navy text-white">
-      <div className="site-container flex min-h-12 flex-col justify-center gap-2 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:py-2">
-        <div className="flex min-w-0 items-start gap-3 sm:items-center">
-          <span
-            className="mt-1 size-2.5 shrink-0 rounded-full bg-brand-sky shadow-[0_0_14px_rgb(86_199_243_/_0.8)] sm:mt-0"
+    <div className="h-11 overflow-hidden border-b border-white/10 bg-brand-navy text-white">
+      <div className="flex h-full items-center">
+        <p className="sr-only">
+          Applications for the first Build Basilan website project are now
+          open. Application deadline: {applicationDeadline}.
+        </p>
+
+        <div className="relative min-w-0 flex-1 overflow-hidden">
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-brand-navy to-transparent"
             aria-hidden="true"
           />
 
-          <div className="min-w-0 text-sm">
-            <p className="font-semibold text-white">
-              Applications for the first Build Basilan website project are now
-              open.
-            </p>
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-brand-navy to-transparent"
+            aria-hidden="true"
+          />
 
-            <p className="mt-0.5 flex items-center gap-1.5 text-xs text-white/65 sm:hidden">
-              <CalendarDays className="size-3.5" aria-hidden="true" />
-              Deadline: {applicationDeadline}
-            </p>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between gap-4 sm:justify-end">
-          <span className="hidden items-center gap-2 text-xs font-medium text-white/70 sm:inline-flex">
-            <CalendarDays className="size-4 text-brand-sky" aria-hidden="true" />
-            Deadline: {applicationDeadline}
-          </span>
-
-          <a
-            href={applicationUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              buttonVariants({
-                variant: "default",
-                size: "sm",
-              }),
-              "h-9 rounded-full bg-primary px-4 text-primary-foreground shadow-[0_8px_24px_rgb(20_125_225_/_0.28)] hover:bg-primary/90",
-            )}
+          <motion.div
+            className="flex w-max items-center"
+            aria-hidden="true"
+            animate={
+              reduceMotion
+                ? undefined
+                : {
+                  x: ["0%", "-50%"],
+                }
+            }
+            transition={
+              reduceMotion
+                ? undefined
+                : {
+                  duration: 28,
+                  repeat: Infinity,
+                  ease: "linear",
+                }
+            }
           >
-            Apply Now
-            <ArrowRight
-              data-icon="inline-end"
-              className="size-4"
-              aria-hidden="true"
-            />
-          </a>
+            {[0, 1].map((copyIndex) => (
+              <div
+                key={copyIndex}
+                className="flex shrink-0 items-center gap-8 pr-8"
+              >
+                {announcementItems.map((item) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <div
+                      key={`${copyIndex}-${item.text}`}
+                      className="flex shrink-0 items-center gap-2 whitespace-nowrap text-xs font-medium text-white/80 sm:text-sm"
+                    >
+                      <Icon
+                        className="size-4 shrink-0 text-brand-sky"
+                        aria-hidden="true"
+                      />
+
+                      <span>{item.text}</span>
+
+                      <span
+                        className="ml-6 size-1.5 rounded-full bg-brand-sky"
+                        aria-hidden="true"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
+          </motion.div>
         </div>
+
+        
       </div>
     </div>
   );
@@ -521,79 +567,84 @@ function SiteHeader() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-xl">
-        <div className="site-container flex h-20 items-center justify-between gap-6">
-          <a
-            href="#home"
-            className="flex items-center gap-3"
-            aria-label="Build Basilan homepage"
-          >
-            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl">
-              <Image
-                src="/build-basilan-logo.png"
-                alt=""
-                fill
-                priority
-                sizes="48px"
-                className="object-contain"
-              />
-            </div>
+      <div className="fixed inset-x-0 top-0 z-50">
+        <ApplicationStatusBar />
 
-            <div>
-              <span className="block font-heading text-base font-bold text-foreground">
-                Build Basilan
-              </span>
-
-              <span className="hidden text-xs text-muted-foreground sm:block">
-                One Website at a Time
-              </span>
-            </div>
-          </a>
-
-          <nav
-            className="hidden items-center gap-7 lg:flex"
-            aria-label="Main navigation"
-          >
-            {navigation.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="hidden lg:block">
+        <header className="border-b border-border/70 bg-background/90 backdrop-blur-xl">
+          <div className="site-container flex h-20 items-center justify-between gap-6">
             <a
-              href={applicationUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={applyButtonClass}
+              href="#home"
+              className="flex min-w-0 items-center gap-3"
+              aria-label="Build Basilan homepage"
             >
-              Apply Now
+              <div className="relative size-11 shrink-0 overflow-hidden rounded-xl sm:size-12">
+                <Image
+                  src="/build-basilan-logo.png"
+                  alt=""
+                  fill
+                  priority
+                  sizes="48px"
+                  className="object-contain"
+                />
+              </div>
 
-              <ArrowRight
-                data-icon="inline-end"
-                className="size-5"
-                aria-hidden="true"
-              />
+              <div className="min-w-0">
+                <span className="block truncate font-heading text-base font-bold text-foreground">
+                  Build Basilan
+                </span>
+
+                <span className="hidden text-xs text-muted-foreground sm:block">
+                  One Website at a Time
+                </span>
+              </div>
             </a>
-          </div>
 
-          <Button
-            type="button"
-            variant="outline"
-            size="icon"
-            className="rounded-full lg:hidden"
-            aria-label="Open navigation menu"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <Menu className="size-5" aria-hidden="true" />
-          </Button>
-        </div>
-      </header>
+            <nav
+              className="hidden items-center gap-7 lg:flex"
+              aria-label="Main navigation"
+            >
+              {navigation.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+
+            <div className="hidden lg:block">
+              <a
+                href={applicationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={applyButtonClass}
+              >
+                Apply Now
+
+                <ArrowRight
+                  data-icon="inline-end"
+                  className="size-5"
+                  aria-hidden="true"
+                />
+              </a>
+            </div>
+
+            <Button
+              type="button"
+              variant="outline"
+              size="icon"
+              className="shrink-0 rounded-full lg:hidden"
+              aria-label="Open navigation menu"
+              aria-expanded={mobileMenuOpen}
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <Menu className="size-5" aria-hidden="true" />
+            </Button>
+          </div>
+        </header>
+      </div>
 
       <Sheet
         open={mobileMenuOpen}
@@ -605,7 +656,7 @@ function SiteHeader() {
         >
           <SheetHeader className="text-left">
             <SheetTitle className="flex items-center gap-3">
-              <span className="relative h-11 w-11 overflow-hidden rounded-xl">
+              <span className="relative size-11 overflow-hidden rounded-xl">
                 <Image
                   src="/build-basilan-logo.png"
                   alt=""
@@ -661,7 +712,6 @@ function SiteHeader() {
     </>
   );
 }
-
 function SiteFooter() {
   return (
     <footer className="border-t border-border bg-background">
@@ -773,8 +823,9 @@ export default function HomePage() {
         {/* Section 1: Hero */}
         <section
           id="home"
-          className="hero-glow relative flex min-h-screen items-center overflow-hidden pb-20 pt-32 sm:pt-36"
+          className="hero-glow relative flex min-h-[100svh] items-center overflow-hidden pb-20 pt-44 sm:pt-40 lg:pt-44"
         >
+
           <div className="hero-grid absolute inset-0 -z-20 opacity-70" />
 
           <div className="site-container grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
@@ -1482,18 +1533,15 @@ export default function HomePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
-                      buttonVariants({
-                        variant: "secondary",
-                        size: "lg",
-                      }),
-                      "w-full rounded-full bg-white px-6 text-primary hover:bg-white/90 lg:w-auto",
+                      applyButtonClass,
+                      "w-full lg:w-auto",
                     )}
                   >
                     Apply for the Project
 
                     <ArrowRight
                       data-icon="inline-end"
-                      className="size-4"
+                      className="size-5"
                       aria-hidden="true"
                     />
                   </a>
@@ -1585,7 +1633,7 @@ export default function HomePage() {
               <div className="brand-gradient relative overflow-hidden rounded-3xl px-6 py-14 text-center text-white shadow-[var(--shadow-primary)] sm:px-10 lg:px-16">
                 <div className="relative mx-auto max-w-3xl">
                   <Badge className="rounded-full border-white/20 bg-white/15 text-white">
-                    Applications is now open!!
+                    Applications are now open
                   </Badge>
 
                   <h2 className="mt-6 font-heading text-4xl font-bold tracking-[-0.04em] text-white sm:text-5xl">
