@@ -140,7 +140,7 @@ function FounderTypingQuote() {
             opacity: [1, 0.25, 1],
           }}
           transition={{
-            duration: 0.9,
+            duration: 1.2, //from 0.9
             repeat: Infinity,
             ease: "easeInOut",
           }}
