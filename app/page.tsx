@@ -115,7 +115,7 @@ function FounderTypingQuote() {
       if (characterIndex >= founderQuestion.length) {
         window.clearInterval(typingTimer);
       }
-    }, 38);
+    }, 65);
 
     return () => {
       window.clearInterval(typingTimer);
