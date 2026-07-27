@@ -624,11 +624,7 @@ function SiteHeader() {
               >
                 Apply Now
 
-                <ArrowRight
-                  data-icon="inline-end"
-                  className="size-5"
-                  aria-hidden="true"
-                />
+               
               </a>
             </div>
 
@@ -702,11 +698,7 @@ function SiteHeader() {
           >
             Apply Now
 
-            <ArrowRight
-              data-icon="inline-end"
-              className="size-5"
-              aria-hidden="true"
-            />
+           
           </a>
         </SheetContent>
       </Sheet>
@@ -875,11 +867,7 @@ export default function HomePage() {
                 >
                   Apply Now
 
-                  <ArrowRight
-                    data-icon="inline-end"
-                    className="size-5"
-                    aria-hidden="true"
-                  />
+                  
                 </a>
                 <a
                   href="#why"
