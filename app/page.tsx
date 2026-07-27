@@ -885,10 +885,7 @@ export default function HomePage() {
 
                   <CardContent className="px-7 pb-7 sm:px-9 sm:pb-9">
                     <p className="leading-8 text-muted-foreground">
-                      To empower organizations in Basilan through technology
-                      by creating digital solutions that amplify their
-                      mission, strengthen their impact, and connect them with
-                      the communities they serve.
+                      To help organizations in Basilan strengthen their digital presence so they can reach more people, share their impact, and continue serving their communities.
                     </p>
                   </CardContent>
                 </Card>
@@ -912,9 +909,7 @@ export default function HomePage() {
 
                   <CardContent className="px-7 pb-7 sm:px-9 sm:pb-9">
                     <p className="leading-8 text-white/70">
-                      A Basilan where every organization has the opportunity
-                      to grow, inspire, and create lasting change through
-                      accessible technology.
+                      A digitally empowered Basilan where every organization has the opportunity to inspire, connect, and create lasting change through technology.
                     </p>
                   </CardContent>
                 </Card>
