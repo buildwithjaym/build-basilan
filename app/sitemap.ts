@@ -21,7 +21,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
 
-    
+    {
+      url: `${siteUrl}/selection-process`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+
+      images: [
+        `${siteUrl}/build-basilan-og.png`,
+      ],
+    },
 
     {
       url: `${siteUrl}/privacy-policy`,

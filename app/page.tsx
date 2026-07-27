@@ -6,6 +6,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import Link from "next/link";
 import {
   motion,
   MotionConfig,
@@ -1552,42 +1553,163 @@ export default function HomePage() {
         </section>
 
         {/* Section 7: Selection Process */}
-        <section
-          id="selection"
-          className="section-spacing"
-        >
-          <div className="site-container">
-            <SectionHeading
-              eyebrow="Transparent selection"
-              title="Clear criteria. Fair review. Shared expectations."
-              description="Build Basilan selects projects based on community value and project readiness, not popularity."
-              centered
-            />
+<section
+  id="selection"
+  className="section-spacing relative overflow-hidden"
+>
+  <div
+    className="pointer-events-none absolute -left-40 top-10 size-[26rem] rounded-full bg-brand-sky/10 blur-3xl"
+    aria-hidden="true"
+  />
 
-            <div className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-3xl border bg-card shadow-[var(--shadow-soft)]">
-              {selectionCriteria.map((criterion, index) => (
-                <Reveal
-                  key={criterion.title}
-                  className="grid gap-4 border-b p-6 last:border-b-0 sm:grid-cols-[4rem_1fr] sm:p-8"
-                >
-                  <span className="font-heading text-2xl font-bold text-primary/35">
-                    0{index + 1}
+  <div
+    className="pointer-events-none absolute -right-40 bottom-0 size-[28rem] rounded-full bg-primary/10 blur-3xl"
+    aria-hidden="true"
+  />
+
+  <div className="site-container relative">
+    <SectionHeading
+      eyebrow="Transparent selection"
+      title="Clear criteria. Fair review. Shared expectations."
+      description="Build Basilan reviews every qualified application using the same community-focused criteria. Selection is based on genuine need, readiness, and long-term value, not popularity."
+      centered
+    />
+
+    <Reveal className="mx-auto mt-10 max-w-4xl">
+      <Card className="overflow-hidden rounded-3xl border-primary/15 bg-secondary/50 shadow-none">
+        <CardContent className="flex flex-col gap-5 p-6 sm:flex-row sm:items-start sm:p-8">
+          <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-[var(--shadow-primary)]">
+            <ShieldCheck
+              className="size-6"
+              aria-hidden="true"
+            />
+          </span>
+
+          <div>
+            <h3 className="font-heading text-xl font-bold text-foreground sm:text-2xl">
+              Every applicant receives the same fair review.
+            </h3>
+
+            <p className="mt-3 max-w-3xl leading-7 text-muted-foreground">
+              Social media followers, public popularity, and personal
+              connections do not determine the result. The review focuses on
+              the organization&apos;s work, website need, readiness to
+              collaborate, and expected community benefit.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    </Reveal>
+
+    <div className="mx-auto mt-8 grid max-w-5xl gap-4 md:grid-cols-2">
+      {selectionCriteria.map((criterion, index) => {
+        const isLastOddItem =
+          selectionCriteria.length % 2 !== 0 &&
+          index === selectionCriteria.length - 1;
+
+        return (
+          <Reveal
+            key={criterion.title}
+            delay={index * 0.05}
+            className={cn(
+              "h-full",
+              isLastOddItem && "md:col-span-2",
+            )}
+          >
+            <Card className="group h-full overflow-hidden rounded-3xl border-border bg-card transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[var(--shadow-soft)]">
+              <CardContent className="relative flex h-full flex-col p-6 sm:p-7">
+                <div
+                  className="absolute right-0 top-0 size-32 rounded-full bg-primary/5 blur-3xl transition-transform duration-500 group-hover:scale-150"
+                  aria-hidden="true"
+                />
+
+                <div className="relative flex items-start justify-between gap-5">
+                  <span className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-secondary font-heading text-sm font-bold text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  <div>
-                    <h3 className="font-heading text-xl font-bold">
-                      {criterion.title}
-                    </h3>
+                  <SearchCheck
+                    className="size-5 text-primary"
+                    aria-hidden="true"
+                  />
+                </div>
 
-                    <p className="mt-2 leading-7 text-muted-foreground">
-                      {criterion.description}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
+                <div className="relative mt-6">
+                  <h3 className="font-heading text-xl font-bold text-foreground">
+                    {criterion.title}
+                  </h3>
+
+                  <p className="mt-3 leading-7 text-muted-foreground">
+                    {criterion.description}
+                  </p>
+                </div>
+
+                <div className="relative mt-auto pt-6">
+                  <div className="h-px bg-border" />
+
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                    Selection criterion
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </Reveal>
+        );
+      })}
+    </div>
+
+    <Reveal className="mx-auto mt-8 max-w-5xl">
+      <Card className="brand-gradient-dark relative overflow-hidden rounded-3xl border-0 text-white shadow-[var(--shadow-card)]">
+        <div
+          className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-brand-sky/20 blur-3xl"
+          aria-hidden="true"
+        />
+
+        <CardContent className="relative flex flex-col gap-7 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex items-start gap-4">
+            <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-brand-sky">
+              <ClipboardCheck
+                className="size-6"
+                aria-hidden="true"
+              />
+            </span>
+
+            <div>
+              <h3 className="font-heading text-xl font-bold text-white sm:text-2xl">
+                Review the complete selection process.
+              </h3>
+
+              <p className="mt-2 max-w-2xl leading-7 text-white/70">
+                Learn about eligibility, application requirements, evaluation
+                steps, responsibilities, project coverage, and what happens
+                after an organization is selected.
+              </p>
             </div>
           </div>
-        </section>
+
+          <Link
+            href="/selection-process"
+            className={cn(
+              buttonVariants({
+                variant: "default",
+                size: "lg",
+              }),
+              "min-h-13 w-full shrink-0 rounded-full bg-primary px-7 text-primary-foreground shadow-[var(--shadow-primary)] hover:bg-primary/90 lg:w-auto",
+            )}
+          >
+            View Full Selection Process
+
+            <ArrowRight
+              data-icon="inline-end"
+              className="size-5"
+              aria-hidden="true"
+            />
+          </Link>
+        </CardContent>
+      </Card>
+    </Reveal>
+  </div>
+</section>
 
         {/* Section 8: FAQ and Call to Action */}
         <section
