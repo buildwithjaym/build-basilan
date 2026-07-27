@@ -11,6 +11,7 @@ import {
   ArrowRight,
   BadgeCheck,
   BarChart3,
+  CalendarDays,
   Check,
   ClipboardCheck,
   Code2,
@@ -327,6 +328,8 @@ const selectionCriteria = [
 
 const applicationUrl = "https://forms.gle/9nweWPH4JneA5NjQ6";
 
+const applicationDeadline = "To be announced";
+
 const applyButtonClass = cn(
   buttonVariants({
     variant: "default",
@@ -457,6 +460,59 @@ function SectionHeading({
         </p>
       ) : null}
     </Reveal>
+  );
+}
+function ApplicationStatusBar() {
+  return (
+    <div className="border-b border-white/10 bg-brand-navy text-white">
+      <div className="site-container flex min-h-12 flex-col justify-center gap-2 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:py-2">
+        <div className="flex min-w-0 items-start gap-3 sm:items-center">
+          <span
+            className="mt-1 size-2.5 shrink-0 rounded-full bg-brand-sky shadow-[0_0_14px_rgb(86_199_243_/_0.8)] sm:mt-0"
+            aria-hidden="true"
+          />
+
+          <div className="min-w-0 text-sm">
+            <p className="font-semibold text-white">
+              Applications for the first Build Basilan website project are now
+              open.
+            </p>
+
+            <p className="mt-0.5 flex items-center gap-1.5 text-xs text-white/65 sm:hidden">
+              <CalendarDays className="size-3.5" aria-hidden="true" />
+              Deadline: {applicationDeadline}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between gap-4 sm:justify-end">
+          <span className="hidden items-center gap-2 text-xs font-medium text-white/70 sm:inline-flex">
+            <CalendarDays className="size-4 text-brand-sky" aria-hidden="true" />
+            Deadline: {applicationDeadline}
+          </span>
+
+          <a
+            href={applicationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              buttonVariants({
+                variant: "default",
+                size: "sm",
+              }),
+              "h-9 rounded-full bg-primary px-4 text-primary-foreground shadow-[0_8px_24px_rgb(20_125_225_/_0.28)] hover:bg-primary/90",
+            )}
+          >
+            Apply Now
+            <ArrowRight
+              data-icon="inline-end"
+              className="size-4"
+              aria-hidden="true"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -857,6 +913,7 @@ export default function HomePage() {
             </motion.div>
           </div>
         </section>
+
         {/* Section 2: Why Build Basilan */}
         <section
           id="why"
@@ -872,8 +929,8 @@ export default function HomePage() {
             aria-hidden="true"
           />
 
-          <div className="site-container relative grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-20">
-            <Reveal>
+          <div className="site-container relative grid min-w-0 items-center gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-16 xl:gap-20">
+            <Reveal className="mx-auto w-full max-w-[38rem] lg:max-w-none">
               <motion.div
                 whileHover={{
                   y: -6,
@@ -883,57 +940,56 @@ export default function HomePage() {
                   ease: "easeOut",
                 }}
               >
-                <Card className="group relative overflow-hidden rounded-[2rem] border border-primary/15 bg-foreground p-0 shadow-[var(--shadow-card)]">
+                <Card className="group relative overflow-hidden rounded-[1.75rem] border border-primary/15 bg-foreground p-0 shadow-[var(--shadow-card)] sm:rounded-[2rem]">
                   <CardContent className="p-0">
-                    <div className="relative aspect-[4/5] min-h-[34rem] overflow-hidden sm:min-h-[40rem]">
+                    <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[5/6] lg:aspect-[4/5]">
                       <Image
                         src="/jaymar.jpg"
                         alt="Jaymar Maruji, founder of Build Basilan"
                         fill
-                        sizes="(max-width: 1024px) 100vw, 44vw"
+                        sizes="(max-width: 640px) 92vw, (max-width: 1024px) 70vw, 42vw"
                         className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]"
                       />
 
                       <div
-                        className="absolute inset-0 bg-gradient-to-t from-[#061a2c] via-[#0b2b4c]/60 to-transparent"
+                        className="absolute inset-0 bg-gradient-to-t from-[#061a2c] via-[#0b2b4c]/55 to-transparent"
                         aria-hidden="true"
                       />
 
                       <div
-                        className="absolute inset-x-0 bottom-0 h-[72%] bg-gradient-to-t from-primary/35 via-primary/10 to-transparent"
+                        className="absolute inset-x-0 bottom-0 h-[74%] bg-gradient-to-t from-primary/35 via-primary/10 to-transparent"
                         aria-hidden="true"
                       />
 
-                      <div className="absolute left-6 top-6 sm:left-8 sm:top-8">
-                        <Badge className="rounded-full border-white/15 bg-white/10 px-4 py-2 text-white backdrop-blur-md hover:bg-white/10">
+                      <div className="absolute left-4 top-4 sm:left-6 sm:top-6 lg:left-8 lg:top-8">
+                        <Badge className="rounded-full border-white/15 bg-white/10 px-3 py-1.5 text-xs text-white backdrop-blur-md hover:bg-white/10 sm:px-4 sm:py-2 sm:text-sm">
                           <Code2
-                            className="size-4 text-brand-sky"
+                            className="size-3.5 text-brand-sky sm:size-4"
                             aria-hidden="true"
                           />
-
                           Founder’s question
                         </Badge>
                       </div>
 
-                      <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-9">
+                      <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 lg:p-8 xl:p-9">
                         <FounderTypingQuote />
 
-                        <Separator className="my-7 bg-white/20" />
+                        <Separator className="my-5 bg-white/20 sm:my-7" />
 
-                        <div className="flex items-center justify-between gap-5">
-                          <div>
-                            <p className="font-heading text-lg font-bold text-white sm:text-xl">
+                        <div className="flex items-center justify-between gap-4">
+                          <div className="min-w-0">
+                            <p className="truncate font-heading text-base font-bold text-white sm:text-lg lg:text-xl">
                               Jaymar Maruji
                             </p>
 
-                            <p className="mt-1 text-sm text-white/70">
+                            <p className="mt-1 text-xs text-white/70 sm:text-sm">
                               Founder and Solo Developer
                             </p>
                           </div>
 
-                          <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-brand-sky backdrop-blur-md">
+                          <span className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-white/10 text-brand-sky backdrop-blur-md sm:size-12 sm:rounded-2xl">
                             <Code2
-                              className="size-5"
+                              className="size-4 sm:size-5"
                               aria-hidden="true"
                             />
                           </span>
@@ -945,69 +1001,67 @@ export default function HomePage() {
               </motion.div>
             </Reveal>
 
-            <div>
+            <div className="min-w-0">
               <SectionHeading
                 eyebrow="Why Build Basilan?"
                 title="Technology should serve the community where it begins."
                 description="Build Basilan started from a personal commitment to use technology in support of organizations already creating meaningful change across Basilan."
               />
 
-              <Reveal className="mt-8">
-                <div className="border-l-2 border-primary pl-6">
-                  <p className="font-heading text-xl font-bold leading-8 text-foreground sm:text-2xl">
+              <Reveal className="mt-7 sm:mt-8">
+                <div className="border-l-2 border-primary pl-5 sm:pl-6">
+                  <p className="font-heading text-lg font-bold leading-7 text-foreground sm:text-xl sm:leading-8 lg:text-2xl">
                     Their work already creates impact.
-                    Their stories deserve to reach further.
+                    <span className="block text-primary">
+                      Their stories deserve to reach further.
+                    </span>
                   </p>
                 </div>
               </Reveal>
 
-              <Reveal className="mt-8 space-y-5 text-base leading-8 text-muted-foreground sm:text-lg">
+              <Reveal className="mt-7 space-y-4 text-[0.98rem] leading-7 text-muted-foreground sm:mt-8 sm:space-y-5 sm:text-lg sm:leading-8">
                 <p>
-                  Across Basilan, local organizations support
-                  families, empower young people, lead community
-                  programs, and respond to real needs.
+                  Across Basilan, local organizations support families, empower young
+                  people, lead community programs, and respond to real needs.
                 </p>
 
                 <p>
-                  Many rely only on social media. Without an
-                  official website, their mission, programs, and
-                  achievements are harder to find, understand, and
-                  support.
+                  Many rely only on social media. Without an official website, their
+                  mission, programs, and achievements are harder to find, understand,
+                  and support.
                 </p>
 
                 <p>
-                  Build Basilan helps provide a clear digital home
-                  where organizations share their story, build
-                  trust, connect with partners, and reach more
+                  Build Basilan provides a clear digital home where organizations share
+                  their story, build trust, connect with partners, and reach more
                   people.
                 </p>
               </Reveal>
 
-              <Reveal className="mt-8">
+              <Reveal className="mt-7 sm:mt-8">
                 <Card className="overflow-hidden rounded-2xl border-primary/15 bg-secondary/60 shadow-none">
-                  <CardContent className="relative p-6 sm:p-7">
+                  <CardContent className="relative p-5 sm:p-6 lg:p-7">
                     <div
                       className="absolute inset-y-0 left-0 w-1.5 bg-primary"
                       aria-hidden="true"
                     />
 
                     <div className="flex items-start gap-4">
-                      <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                      <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground sm:size-11">
                         <HeartHandshake
                           className="size-5"
                           aria-hidden="true"
                         />
                       </span>
 
-                      <div>
+                      <div className="min-w-0">
                         <h3 className="font-heading text-lg font-bold text-foreground sm:text-xl">
                           More than a student project.
                         </h3>
 
-                        <p className="mt-2 leading-7 text-muted-foreground">
-                          Build Basilan is a long-term commitment to
-                          give back through technology, one
-                          organization and one website at a time.
+                        <p className="mt-2 text-sm leading-7 text-muted-foreground sm:text-base">
+                          Build Basilan is a long-term commitment to give back through
+                          technology, one organization and one website at a time.
                         </p>
                       </div>
                     </div>
@@ -1015,7 +1069,7 @@ export default function HomePage() {
                 </Card>
               </Reveal>
 
-              <Reveal className="mt-7 flex flex-wrap gap-3">
+              <Reveal className="mt-6 flex flex-wrap gap-2.5 sm:mt-7 sm:gap-3">
                 {[
                   "Rooted in Basilan",
                   "Community-first",
@@ -1023,13 +1077,12 @@ export default function HomePage() {
                 ].map((item) => (
                   <span
                     key={item}
-                    className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-background px-4 py-2 text-sm font-medium text-muted-foreground shadow-sm"
+                    className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-background px-3.5 py-2 text-xs font-medium text-muted-foreground shadow-sm sm:px-4 sm:text-sm"
                   >
                     <Check
-                      className="size-4 text-primary"
+                      className="size-3.5 text-primary sm:size-4"
                       aria-hidden="true"
                     />
-
                     {item}
                   </span>
                 ))}
@@ -1037,7 +1090,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-
         {/* Section 3: Mission and Vision */}
         <section
           id="mission"

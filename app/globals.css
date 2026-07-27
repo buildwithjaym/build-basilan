@@ -82,7 +82,7 @@
    * Cloud Gray: #F3F7FA
    * Slate Gray: #52687A
    */
-
+   --announcement-height: 4.5rem;
   /* Raw brand colors */
   --brand-blue: #147de1;
   --brand-sky: #56c7f3;
@@ -422,5 +422,17 @@
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+html {
+  scroll-padding-top: calc(
+    var(--header-height) + var(--announcement-height) + 1rem
+  );
+}
+
+@media (min-width: 640px) {
+  :root {
+    --announcement-height: 3rem;
   }
 }
