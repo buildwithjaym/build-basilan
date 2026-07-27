@@ -264,7 +264,11 @@ export default function RootLayout({
   children,
 }: RootLayoutProps) {
   return (
-    <html lang="en-PH" suppressHydrationWarning>
+    <html
+      lang="en-PH"
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+    >
       <body
         className={`
           ${geistSans.variable}
