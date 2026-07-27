@@ -1077,7 +1077,7 @@ export default function SelectionProcessPage() {
               </Link>
 
               <Link
-                href="/privacy-policy"
+                href="/privacy"
                 className="transition-colors hover:text-primary"
               >
                 Privacy Policy
