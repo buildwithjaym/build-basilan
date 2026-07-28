@@ -116,7 +116,7 @@ function FounderTypingQuote() {
       if (characterIndex >= founderQuestion.length) {
         window.clearInterval(typingTimer);
       }
-    }, 65);
+    }, 75);
 
     return () => {
       window.clearInterval(typingTimer);
@@ -141,7 +141,7 @@ function FounderTypingQuote() {
             opacity: [1, 0.25, 1],
           }}
           transition={{
-            duration: 1.2, //from 0.9
+            duration: 1.5, //from 0.9
             repeat: Infinity,
             ease: "easeInOut",
           }}
