@@ -9,9 +9,9 @@
 A community initiative empowering NGOs, youth organizations, and community groups in Basilan through meaningful technology.
 
 <p>
-  <a href="https://your-website.com"><strong>🌐 Website</strong></a> •
-  <a href="https://your-google-form-link.com"><strong>📝 Apply</strong></a> •
-  <a href="https://facebook.com/buildbasilan"><strong>📘 Facebook</strong></a>
+  <a href="https://build-basilan.online"><strong>🌐 Website</strong></a> •
+  <a href="https://forms.gle/9nweWPH4JneA5NjQ6"><strong>📝 Apply</strong></a> •
+  <a href="https://www.facebook.com/jaymar.maruji"><strong>📘 Facebook</strong></a>
 </p>
 
 <img src="https://img.shields.io/badge/Status-Active-147DE1?style=for-the-badge" />
