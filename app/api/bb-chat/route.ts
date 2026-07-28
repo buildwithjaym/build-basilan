@@ -4,10 +4,13 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { bbKnowledge } from "@/lib/bb-knowledge";
 
 
-const genAI =
-new GoogleGenerativeAI(
-process.env.GEMINI_API_KEY!
-);
+const apiKey = process.env.GEMINI_API_KEY;
+
+if (!apiKey) {
+  throw new Error("Missing GEMINI_API_KEY");
+}
+
+const genAI = new GoogleGenerativeAI(apiKey);
 
 
 
@@ -66,7 +69,7 @@ generationConfig:{
 
 temperature:0.2,
 
-maxOutputTokens:180,
+maxOutputTokens:120,
 
 }
 

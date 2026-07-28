@@ -16,9 +16,8 @@ const actions=[
 "Who can apply?",
 
 "What does Build Basilan provide?",
-
+"How can I apply?",
 "How does the application work?",
-
 "Contact Build Basilan"
 
 ];
