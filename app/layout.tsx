@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import { Toaster } from "sonner";
+import BBAssistant from "@/components/bb/bb-assistant";
 
 import "./globals.css";
 
@@ -477,6 +478,8 @@ export default function RootLayout({
             },
           }}
         />
+
+        <BBAssistant />
       </body>
     </html>
   );
