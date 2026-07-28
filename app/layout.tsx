@@ -23,9 +23,7 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://build-basilan.online";
+const siteUrl = "https://www.build-basilan.online";
 
 const siteName = "Build Basilan";
 
