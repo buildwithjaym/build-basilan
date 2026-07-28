@@ -581,7 +581,7 @@ function SiteHeader() {
               <div className="relative size-11 shrink-0 overflow-hidden rounded-xl sm:size-12">
                 <Image
                   src="/build-basilan-logo.png"
-                  alt=""
+                  alt="Build Basilan logo"
                   fill
                   priority
                   sizes="48px"
@@ -656,7 +656,7 @@ function SiteHeader() {
               <span className="relative size-11 overflow-hidden rounded-xl">
                 <Image
                   src="/build-basilan-logo.png"
-                  alt=""
+                  alt="Build Basilan logo"
                   fill
                   sizes="44px"
                   className="object-contain"
@@ -717,7 +717,7 @@ function SiteFooter() {
             <div className="relative h-12 w-12 overflow-hidden rounded-xl">
               <Image
                 src="/build-basilan-logo.png"
-                alt=""
+                alt="Build Basilan logo"
                 fill
                 sizes="48px"
                 className="object-contain"
@@ -1426,7 +1426,7 @@ export default function HomePage() {
                                     <div className="relative size-11 overflow-hidden rounded-xl bg-white">
                                       <Image
                                         src="/build-basilan-logo.png"
-                                        alt=""
+                                        alt="Build Basilan logo"
                                         fill
                                         sizes="44px"
                                         className="object-contain p-1"

@@ -33,7 +33,7 @@ const siteTitle =
   "Build Basilan | Technology That Builds Communities";
 
 const siteDescription =
-  "Build Basilan is a community initiative by Jaymar Maruji helping NGOs, youth organizations, and community groups in Basilan strengthen their digital presence through accessible and modern websites.";
+  "Build Basilan helps NGOs, youth organizations, and community groups in Basilan build accessible websites and strengthen their digital presence.";
 
 const logoPath = "/build-basilan-logo.png";
 const socialImagePath = "/build-basilan-og.png";
