@@ -30,7 +30,7 @@ Build Basilan is a community initiative founded by **Jaymar Maruji**, a Computer
 
 The initiative was born from one simple question:
 
-> **"As a Computer Science student from Basilan, how can I give back to the place I call home?"**
+> **"As a Computer Science student from Basilan and a solo developer, how can I give back to the place I call home?"**
 
 Many organizations in Basilan are already creating meaningful change. They empower young people, serve communities, protect the environment, and inspire others every day.
 
