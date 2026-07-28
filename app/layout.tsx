@@ -33,7 +33,7 @@ const siteTitle =
   "Build Basilan | Technology That Builds Communities";
 
 const siteDescription =
-  "Build Basilan is a community initiative helping NGOs, youth organizations, and community groups in Basilan strengthen their digital presence through accessible and modern websites.";
+  "Build Basilan is a community initiative by Jaymar Maruji helping NGOs, youth organizations, and community groups in Basilan strengthen their digital presence through accessible and modern websites.";
 
 const logoPath = "/build-basilan-logo.png";
 const socialImagePath = "/build-basilan-og.png";
@@ -86,6 +86,131 @@ const organizationJsonLd = {
   ],
 };
 
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${siteUrl}/#localbusiness`,
+  name: "Build Basilan",
+  url: siteUrl,
+  image: socialImageUrl,
+
+  description: siteDescription,
+
+  founder: {
+    "@type": "Person",
+    name: "Jaymar Maruji",
+  },
+
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Basilan",
+    addressRegion: "BARMM",
+    addressCountry: "PH",
+  },
+
+  areaServed: [
+    {
+      "@type": "AdministrativeArea",
+      name: "Basilan",
+    },
+    {
+      "@type": "Country",
+      name: "Philippines",
+    },
+  ],
+
+  serviceType: [
+    "Website Development",
+    "NGO Website Development",
+    "Community Organization Websites",
+    "Digital Accessibility Solutions",
+  ],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is Build Basilan?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text:
+          "Build Basilan is a community technology initiative helping NGOs, youth groups, and community organizations create accessible websites.",
+      },
+    },
+
+    {
+      "@type": "Question",
+      name: "Who does Build Basilan help?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text:
+          "Build Basilan helps community organizations, nonprofit groups, and youth organizations in Basilan strengthen their online presence.",
+      },
+    },
+
+    {
+      "@type": "Question",
+      name: "What services does Build Basilan provide?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text:
+          "Build Basilan provides website development, digital accessibility improvements, and online presence solutions.",
+      },
+    },
+  ],
+};
+
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+
+  "@id": `${siteUrl}/#webpage`,
+
+  url: siteUrl,
+
+  name: siteTitle,
+
+  description: siteDescription,
+
+  isPartOf: {
+    "@id": `${siteUrl}/#website`,
+  },
+
+  about: {
+    "@id": `${siteUrl}/#organization`,
+  },
+
+  inLanguage: "en-PH",
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+
+  "@id": `${siteUrl}/#jaymar-maruji`,
+
+  name: "Jaymar Maruji",
+
+  jobTitle: "Founder and Solo Developer",
+
+  worksFor: {
+    "@id": `${siteUrl}/#organization`,
+  },
+
+  knowsAbout: [
+    "Web development",
+    "SEO",
+    "Community technology",
+    "Digital accessibility",
+    "Software Engineer",
+  ],
+};
+
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -118,6 +243,7 @@ export const metadata: Metadata = {
   keywords: [
     "Build Basilan",
     "Basilan community initiative",
+    "Basilan initiative",
     "Basilan organizations",
     "NGO websites Basilan",
     "youth organizations Basilan",
@@ -128,6 +254,7 @@ export const metadata: Metadata = {
     "social impact technology",
     "nonprofit website development",
     "community technology Philippines",
+    "youth organization websites",
     "Jaymar Maruji",
   ],
 
@@ -301,6 +428,45 @@ export default function RootLayout({
           }}
         />
 
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessJsonLd).replace(
+              /</g,
+              "\\u003c",
+            ),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqJsonLd).replace(
+              /</g,
+              "\\u003c",
+            ),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(webPageJsonLd).replace(
+              /</g,
+              "\\u003c",
+            ),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd).replace(
+              /</g,
+              "\\u003c",
+            ),
+          }}
+        />
         {children}
 
         <Toaster

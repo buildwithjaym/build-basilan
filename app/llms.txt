@@ -1,0 +1,28 @@
+# Build Basilan
+
+## About
+
+Build Basilan is a community technology initiative founded by Jaymar Maruji in Basilan, Philippines.
+
+The initiative helps NGOs, youth organizations, and community groups improve their digital presence.
+
+## Services
+
+- Website development
+- NGO websites
+- Community organization websites
+- Digital accessibility
+- Website maintenance
+
+## Founder
+
+Jaymar Maruji
+Founder and Solo Developer
+
+## Location
+
+Basilan, Philippines
+
+## Website
+
+https://build-basilan.online
