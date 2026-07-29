@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import MessageContent from "./message-content";
 import { useEffect, useRef, useState } from "react";
 
 type Message = {
@@ -132,7 +133,7 @@ export default function BBChatWindow({
                                         : "max-w-[80%] break-words rounded-2xl bg-[#F3F7FA] px-3 py-2 text-sm text-[#0B2B4C]"
                                 }
                             >
-                                {msg.content}
+                               <MessageContent content={msg.content} />
                             </div>
                         </div>
                     ))}
