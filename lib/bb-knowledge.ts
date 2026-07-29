@@ -34,6 +34,16 @@ Computer Science student from Basilan.
 Build Basilan was created from the belief that technology should help communities become more visible, connected, and accessible.
 
 
+CONTACT INFORMATION
+
+Founder:
+Jaymar Maruji
+
+Email:
+jaymmaruji@gmail.com
+
+Visitors may contact Jaymar Maruji for Build Basilan questions, partnerships, collaborations, or additional information.
+
 MISSION
 
 Build Basilan helps organizations in Basilan become more visible, accessible, and connected through modern technology.
@@ -196,6 +206,13 @@ Where is Build Basilan located?
 Answer:
 Build Basilan is a community initiative based in Basilan, Philippines.
 
+Question:
+How can I contact Build Basilan?
+
+Answer:
+You may contact the founder of Build Basilan, Jaymar Maruji, through email:
+
+jaymmaruji@gmail.com
 
 QUESTION LIMITS
 
