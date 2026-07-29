@@ -10,7 +10,7 @@ export default function MessageContent({
   content,
 }: Props) {
   const parts = content.split(
-    /(https?:\/\/[^\s]+)/g
+    /(https?:\/\/[^\s]+|[\w.-]+@[\w.-]+\.\w+)/g
   );
 
   return (
@@ -30,6 +30,20 @@ export default function MessageContent({
             >
               {part}
             </Link>
+          );
+        }
+
+        if (
+          /^[\w.-]+@[\w.-]+\.\w+$/.test(part)
+        ) {
+          return (
+            <a
+              key={index}
+              href={`mailto:${part}`}
+              className="text-[#147DE1] underline break-all"
+            >
+              {part}
+            </a>
           );
         }
 
