@@ -214,10 +214,17 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${siteUrl}/#website`,
-  name: siteName,
-  alternateName: "Build Basilan Initiative",
+
+  name: "Build Basilan",
+
+  alternateName: [
+    "Build Basilan Initiative",
+  ],
+
   url: siteUrl,
+
   description: siteDescription,
+
   inLanguage: "en-PH",
 
   publisher: {
@@ -226,6 +233,7 @@ const websiteJsonLd = {
 
   image: socialImageUrl,
 };
+
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
