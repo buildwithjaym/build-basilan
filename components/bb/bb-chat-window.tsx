@@ -21,7 +21,7 @@ const quickActions = [
     "How can I apply?",
     "Who can apply?",
     "How does the process work?",
-    "What websites do you build?"
+   
 
 ]
 

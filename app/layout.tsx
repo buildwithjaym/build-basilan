@@ -489,8 +489,8 @@ export default function RootLayout({
 
         <BBAssistant />
         <GoogleAnalytics
-  gaId="G-2L4ZP8LCJH"
-/>
+          gaId="G-2L4ZP8LCJH"
+        />
       </body>
     </html>
   );
