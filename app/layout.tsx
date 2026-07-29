@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import { Toaster } from "sonner";
 import BBAssistant from "@/components/bb/bb-assistant";
-
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -488,6 +488,9 @@ export default function RootLayout({
         />
 
         <BBAssistant />
+        <GoogleAnalytics
+  gaId="G-2L4ZP8LCJH"
+/>
       </body>
     </html>
   );
