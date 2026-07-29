@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://build-basilan.online";
+  "https://www.build-basilan.online";
 
 const lastModified = new Date("2026-07-27T00:00:00+08:00");
 
