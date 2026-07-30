@@ -50,7 +50,7 @@ const applicationUrl =
 const socialImageUrl =
   `${siteUrl}/build-basilan-og.png`;
 
-const applicationDeadline = "July 30, 2026";
+const applicationDeadline = "July 30, 2026 | 11:59pm";
 
 const pageTitle =
   "Selection Process | Build Basilan Website Project";

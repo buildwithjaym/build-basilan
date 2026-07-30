@@ -333,7 +333,7 @@ const selectionCriteria = [
 
 const applicationUrl = "https://forms.gle/9nweWPH4JneA5NjQ6";
 
-const applicationDeadline = "July 30, 2026 | 11:59pm";
+const applicationDeadline = "July 30, 2026 | 11:59pm"; {/*Application Deadline*/}
 
 const announcementItems = [
   {
