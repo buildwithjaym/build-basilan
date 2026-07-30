@@ -1083,12 +1083,7 @@ export default function SelectionProcessPage() {
                 Privacy Policy
               </Link>
 
-              <a
-                href="mailto:jaymmaruji@gmail.com"
-                className="transition-colors hover:text-primary"
-              >
-                Contact
-              </a>
+            
             </div>
           </div>
 
