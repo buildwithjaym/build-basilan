@@ -16,29 +16,29 @@ export default function BBButton({
 }: BBButtonProps) {
 
 
-return (
+  return (
 
-<motion.button
+    <motion.button
 
-onClick={onClick}
+      onClick={onClick}
 
-initial={{
-scale:0
-}}
+      initial={{
+        scale: 0
+      }}
 
-animate={{
-scale:1
-}}
+      animate={{
+        scale: 1
+      }}
 
-whileHover={{
-scale:1.08
-}}
+      whileHover={{
+        scale: 1.08
+      }}
 
-whileTap={{
-scale:.95
-}}
+      whileTap={{
+        scale: .95
+      }}
 
-className="
+      className="
 fixed
 
 bottom-6
@@ -67,17 +67,17 @@ hover:bg-[#56C7F3]
 
 "
 
-aria-label="Open BB Assistant"
+      aria-label="Open BB Assistant"
 
->
+    >
 
-<MessageCircle
-size={22}
-/>
+      <MessageCircle
+        size={22}
+      />
 
 
-</motion.button>
+    </motion.button>
 
-)
+  )
 
 }

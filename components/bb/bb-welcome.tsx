@@ -1,10 +1,10 @@
-export default function BBWelcome(){
+export default function BBWelcome() {
 
-return (
+    return (
 
-<div
+        <div
 
-className="
+            className="
 rounded-2xl
 
 bg-[#F3F7FA]
@@ -18,21 +18,21 @@ text-[#0B2B4C]
 
 "
 
->
+        >
 
-Hi! I'm BB 👋
+            Hi! I'm BB 👋
 
-<br/><br/>
+            <br /><br />
 
-Your Build Basilan Assistant.
+            Your Build Basilan Assistant.
 
-<br/><br/>
+            <br /><br />
 
-I can help you learn about Build Basilan,
-our website initiative, services, and application process.
+            I can help you learn about Build Basilan,
+            our website initiative, services, and application process.
 
-</div>
+        </div>
 
-)
+    )
 
 }
