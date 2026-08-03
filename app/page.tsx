@@ -7,6 +7,9 @@ import {
   type ReactNode,
 } from "react";
 import Link from "next/link";
+
+import { toast } from "sonner";
+
 import {
   motion,
   MotionConfig,
@@ -87,6 +90,13 @@ const navigation = [
     href: "#faq",
   },
 ];
+
+const handleClosedApplication = () => {
+  toast.info("Applications Currently Closed", {
+    description:
+      "Please wait for the next Build Basilan application batch announcement.",
+  });
+};
 
 const founderQuestion =
   "As a Computer Science student from Basilan, how do I give back to the place I call home?";
@@ -331,18 +341,14 @@ const selectionCriteria = [
   },
 ];
 
-const applicationUrl = "https://forms.gle/9nweWPH4JneA5NjQ6";
 
-const applicationDeadline = "July 30, 2026 | 11:59pm"; {/*Application Deadline*/}
+
+{/*const applicationDeadline = "July 30, 2026 | 11:59pm | const applicationUrl = "https://forms.gle/9nweWPH4JneA5NjQ6"";*/ }
 
 const announcementItems = [
   {
     icon: BadgeCheck,
-    text: "Applications for the first Build Basilan website project are now open.",
-  },
-  {
-    icon: CalendarDays,
-    text: `Application deadline: ${applicationDeadline}`,
+    text: "Applications for the first Build Basilan website project are now closed. Stay tuned for the next batch.",
   },
   {
     icon: Globe2,
@@ -490,8 +496,7 @@ function ApplicationStatusBar() {
     <div className="h-11 overflow-hidden border-b border-white/10 bg-brand-navy text-white">
       <div className="flex h-full items-center">
         <p className="sr-only">
-          Applications for the first Build Basilan website project are now
-          open. Application deadline: {applicationDeadline}.
+          Applications for the first Build Basilan website project are currently closed. Please wait for announcements regarding the next application batch.
         </p>
 
         <div className="relative min-w-0 flex-1 overflow-hidden">
@@ -557,7 +562,7 @@ function ApplicationStatusBar() {
           </motion.div>
         </div>
 
-        
+
       </div>
     </div>
   );
@@ -616,16 +621,13 @@ function SiteHeader() {
             </nav>
 
             <div className="hidden lg:block">
-              <a
-                href={applicationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={handleClosedApplication}
                 className={applyButtonClass}
               >
-                Apply Now
-
-               
-              </a>
+                Applications Closed
+              </button>
             </div>
 
             <Button
@@ -689,17 +691,13 @@ function SiteHeader() {
 
           <Separator className="my-6" />
 
-          <a
-            href={applicationUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(applyButtonClass, "w-full")}
-            onClick={() => setMobileMenuOpen(false)}
+          <button
+            type="button"
+            onClick={handleClosedApplication}
+            className={applyButtonClass}
           >
-            Apply Now
-
-           
-          </a>
+            Applications Closed
+          </button>
         </SheetContent>
       </Sheet>
     </>
@@ -859,16 +857,13 @@ export default function HomePage() {
               </p>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={applicationUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={handleClosedApplication}
                   className={applyButtonClass}
                 >
-                  Apply Now
-
-                  
-                </a>
+                  Wait for Next Batch
+                </button>
                 <a
                   href="#why"
                   className={cn(
@@ -1517,23 +1512,21 @@ export default function HomePage() {
                     </p>
                   </div>
 
-                  <a
-                    href={applicationUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    type="button"
+                    onClick={handleClosedApplication}
                     className={cn(
                       applyButtonClass,
                       "w-full lg:w-auto",
                     )}
                   >
-                    Apply for the Project
+                    Wait for Next Batch
 
                     <ArrowRight
-                      data-icon="inline-end"
                       className="size-5"
                       aria-hidden="true"
                     />
-                  </a>
+                  </button>
                 </CardContent>
               </Card>
             </Reveal>
@@ -1541,163 +1534,163 @@ export default function HomePage() {
         </section>
 
         {/* Section 7: Selection Process */}
-<section
-  id="selection"
-  className="section-spacing relative overflow-hidden"
->
-  <div
-    className="pointer-events-none absolute -left-40 top-10 size-[26rem] rounded-full bg-brand-sky/10 blur-3xl"
-    aria-hidden="true"
-  />
+        <section
+          id="selection"
+          className="section-spacing relative overflow-hidden"
+        >
+          <div
+            className="pointer-events-none absolute -left-40 top-10 size-[26rem] rounded-full bg-brand-sky/10 blur-3xl"
+            aria-hidden="true"
+          />
 
-  <div
-    className="pointer-events-none absolute -right-40 bottom-0 size-[28rem] rounded-full bg-primary/10 blur-3xl"
-    aria-hidden="true"
-  />
+          <div
+            className="pointer-events-none absolute -right-40 bottom-0 size-[28rem] rounded-full bg-primary/10 blur-3xl"
+            aria-hidden="true"
+          />
 
-  <div className="site-container relative">
-    <SectionHeading
-      eyebrow="Transparent selection"
-      title="Clear criteria. Fair review. Shared expectations."
-      description="Build Basilan reviews every qualified application using the same community-focused criteria. Selection is based on genuine need, readiness, and long-term value, not popularity."
-      centered
-    />
-
-    <Reveal className="mx-auto mt-10 max-w-4xl">
-      <Card className="overflow-hidden rounded-3xl border-primary/15 bg-secondary/50 shadow-none">
-        <CardContent className="flex flex-col gap-5 p-6 sm:flex-row sm:items-start sm:p-8">
-          <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-[var(--shadow-primary)]">
-            <ShieldCheck
-              className="size-6"
-              aria-hidden="true"
+          <div className="site-container relative">
+            <SectionHeading
+              eyebrow="Transparent selection"
+              title="Clear criteria. Fair review. Shared expectations."
+              description="Build Basilan reviews every qualified application using the same community-focused criteria. Selection is based on genuine need, readiness, and long-term value, not popularity."
+              centered
             />
-          </span>
 
-          <div>
-            <h3 className="font-heading text-xl font-bold text-foreground sm:text-2xl">
-              Every applicant receives the same fair review.
-            </h3>
+            <Reveal className="mx-auto mt-10 max-w-4xl">
+              <Card className="overflow-hidden rounded-3xl border-primary/15 bg-secondary/50 shadow-none">
+                <CardContent className="flex flex-col gap-5 p-6 sm:flex-row sm:items-start sm:p-8">
+                  <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-[var(--shadow-primary)]">
+                    <ShieldCheck
+                      className="size-6"
+                      aria-hidden="true"
+                    />
+                  </span>
 
-            <p className="mt-3 max-w-3xl leading-7 text-muted-foreground">
-              Social media followers, public popularity, and personal
-              connections do not determine the result. The review focuses on
-              the organization&apos;s work, website need, readiness to
-              collaborate, and expected community benefit.
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-    </Reveal>
+                  <div>
+                    <h3 className="font-heading text-xl font-bold text-foreground sm:text-2xl">
+                      Every applicant receives the same fair review.
+                    </h3>
 
-    <div className="mx-auto mt-8 grid max-w-5xl gap-4 md:grid-cols-2">
-      {selectionCriteria.map((criterion, index) => {
-        const isLastOddItem =
-          selectionCriteria.length % 2 !== 0 &&
-          index === selectionCriteria.length - 1;
+                    <p className="mt-3 max-w-3xl leading-7 text-muted-foreground">
+                      Social media followers, public popularity, and personal
+                      connections do not determine the result. The review focuses on
+                      the organization&apos;s work, website need, readiness to
+                      collaborate, and expected community benefit.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Reveal>
 
-        return (
-          <Reveal
-            key={criterion.title}
-            delay={index * 0.05}
-            className={cn(
-              "h-full",
-              isLastOddItem && "md:col-span-2",
-            )}
-          >
-            <Card className="group h-full overflow-hidden rounded-3xl border-border bg-card transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[var(--shadow-soft)]">
-              <CardContent className="relative flex h-full flex-col p-6 sm:p-7">
+            <div className="mx-auto mt-8 grid max-w-5xl gap-4 md:grid-cols-2">
+              {selectionCriteria.map((criterion, index) => {
+                const isLastOddItem =
+                  selectionCriteria.length % 2 !== 0 &&
+                  index === selectionCriteria.length - 1;
+
+                return (
+                  <Reveal
+                    key={criterion.title}
+                    delay={index * 0.05}
+                    className={cn(
+                      "h-full",
+                      isLastOddItem && "md:col-span-2",
+                    )}
+                  >
+                    <Card className="group h-full overflow-hidden rounded-3xl border-border bg-card transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[var(--shadow-soft)]">
+                      <CardContent className="relative flex h-full flex-col p-6 sm:p-7">
+                        <div
+                          className="absolute right-0 top-0 size-32 rounded-full bg-primary/5 blur-3xl transition-transform duration-500 group-hover:scale-150"
+                          aria-hidden="true"
+                        />
+
+                        <div className="relative flex items-start justify-between gap-5">
+                          <span className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-secondary font-heading text-sm font-bold text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
+
+                          <SearchCheck
+                            className="size-5 text-primary"
+                            aria-hidden="true"
+                          />
+                        </div>
+
+                        <div className="relative mt-6">
+                          <h3 className="font-heading text-xl font-bold text-foreground">
+                            {criterion.title}
+                          </h3>
+
+                          <p className="mt-3 leading-7 text-muted-foreground">
+                            {criterion.description}
+                          </p>
+                        </div>
+
+                        <div className="relative mt-auto pt-6">
+                          <div className="h-px bg-border" />
+
+                          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                            Selection criterion
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Reveal>
+                );
+              })}
+            </div>
+
+            <Reveal className="mx-auto mt-8 max-w-5xl">
+              <Card className="brand-gradient-dark relative overflow-hidden rounded-3xl border-0 text-white shadow-[var(--shadow-card)]">
                 <div
-                  className="absolute right-0 top-0 size-32 rounded-full bg-primary/5 blur-3xl transition-transform duration-500 group-hover:scale-150"
+                  className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-brand-sky/20 blur-3xl"
                   aria-hidden="true"
                 />
 
-                <div className="relative flex items-start justify-between gap-5">
-                  <span className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-secondary font-heading text-sm font-bold text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                <CardContent className="relative flex flex-col gap-7 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
+                  <div className="flex items-start gap-4">
+                    <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-brand-sky">
+                      <ClipboardCheck
+                        className="size-6"
+                        aria-hidden="true"
+                      />
+                    </span>
 
-                  <SearchCheck
-                    className="size-5 text-primary"
-                    aria-hidden="true"
-                  />
-                </div>
+                    <div>
+                      <h3 className="font-heading text-xl font-bold text-white sm:text-2xl">
+                        Review the complete selection process.
+                      </h3>
 
-                <div className="relative mt-6">
-                  <h3 className="font-heading text-xl font-bold text-foreground">
-                    {criterion.title}
-                  </h3>
+                      <p className="mt-2 max-w-2xl leading-7 text-white/70">
+                        Learn about eligibility, application requirements, evaluation
+                        steps, responsibilities, project coverage, and what happens
+                        after an organization is selected.
+                      </p>
+                    </div>
+                  </div>
 
-                  <p className="mt-3 leading-7 text-muted-foreground">
-                    {criterion.description}
-                  </p>
-                </div>
+                  <Link
+                    href="/selection-process"
+                    className={cn(
+                      buttonVariants({
+                        variant: "default",
+                        size: "lg",
+                      }),
+                      "min-h-13 w-full shrink-0 rounded-full bg-primary px-7 text-primary-foreground shadow-[var(--shadow-primary)] hover:bg-primary/90 lg:w-auto",
+                    )}
+                  >
+                    View Full Selection Process
 
-                <div className="relative mt-auto pt-6">
-                  <div className="h-px bg-border" />
-
-                  <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                    Selection criterion
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </Reveal>
-        );
-      })}
-    </div>
-
-    <Reveal className="mx-auto mt-8 max-w-5xl">
-      <Card className="brand-gradient-dark relative overflow-hidden rounded-3xl border-0 text-white shadow-[var(--shadow-card)]">
-        <div
-          className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-brand-sky/20 blur-3xl"
-          aria-hidden="true"
-        />
-
-        <CardContent className="relative flex flex-col gap-7 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex items-start gap-4">
-            <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-brand-sky">
-              <ClipboardCheck
-                className="size-6"
-                aria-hidden="true"
-              />
-            </span>
-
-            <div>
-              <h3 className="font-heading text-xl font-bold text-white sm:text-2xl">
-                Review the complete selection process.
-              </h3>
-
-              <p className="mt-2 max-w-2xl leading-7 text-white/70">
-                Learn about eligibility, application requirements, evaluation
-                steps, responsibilities, project coverage, and what happens
-                after an organization is selected.
-              </p>
-            </div>
+                    <ArrowRight
+                      data-icon="inline-end"
+                      className="size-5"
+                      aria-hidden="true"
+                    />
+                  </Link>
+                </CardContent>
+              </Card>
+            </Reveal>
           </div>
-
-          <Link
-            href="/selection-process"
-            className={cn(
-              buttonVariants({
-                variant: "default",
-                size: "lg",
-              }),
-              "min-h-13 w-full shrink-0 rounded-full bg-primary px-7 text-primary-foreground shadow-[var(--shadow-primary)] hover:bg-primary/90 lg:w-auto",
-            )}
-          >
-            View Full Selection Process
-
-            <ArrowRight
-              data-icon="inline-end"
-              className="size-5"
-              aria-hidden="true"
-            />
-          </Link>
-        </CardContent>
-      </Card>
-    </Reveal>
-  </div>
-</section>
+        </section>
 
         {/* Section 8: FAQ and Call to Action */}
         <section
@@ -1743,36 +1736,33 @@ export default function HomePage() {
               <div className="brand-gradient relative overflow-hidden rounded-3xl px-6 py-14 text-center text-white shadow-[var(--shadow-primary)] sm:px-10 lg:px-16">
                 <div className="relative mx-auto max-w-3xl">
                   <Badge className="rounded-full border-white/20 bg-white/15 text-white">
-                    Applications are now open
+                     Applications Currently Closed
                   </Badge>
 
                   <h2 className="mt-6 font-heading text-4xl font-bold tracking-[-0.04em] text-white sm:text-5xl">
-                    Ready to share your story with the world?
+                    The First Build Basilan Batch Has Been Completed.
                   </h2>
 
                   <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                    Apply to become the next Build Basilan partner and take the
-                    first step toward a stronger digital presence.
+                    Thank you for your interest. Stay connected for announcements about the next Build Basilan application batch.
                   </p>
 
                   <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                    <a
-                      href={applicationUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={cn(
-                        applyButtonClass,
-                        "w-full lg:w-auto",
-                      )}
-                    >
-                      Apply for the Project
+                   <button
+  type="button"
+  onClick={handleClosedApplication}
+  className={cn(
+    applyButtonClass,
+    "w-full lg:w-auto",
+  )}
+>
+  Wait for Next Batch
 
-                      <ArrowRight
-                        data-icon="inline-end"
-                        className="size-5"
-                        aria-hidden="true"
-                      />
-                    </a>
+  <ArrowRight
+    className="size-5"
+    aria-hidden="true"
+  />
+</button>
 
                     <a
                       href="#selection"
