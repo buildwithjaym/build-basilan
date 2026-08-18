@@ -237,79 +237,42 @@ const processSteps = [
     icon: Rocket,
   },
 ];
-
 const websiteFeatures = [
   {
-    title: "Responsive Website",
+    number: "01",
+    title: "Responsive website",
     description:
-      "A professional website designed to feel clear, polished, and consistent on every screen.",
-    label: "Complete foundation",
-    icon: MonitorSmartphone,
-    points: [
-      "Desktop, tablet, and mobile layouts",
-      "Accessible navigation",
-      "Consistent visual experience",
-    ],
+      "A complete website designed for desktop, tablet, and mobile, with clear navigation and accessible page structure.",
   },
   {
-    title: "Modern UI and UX",
+    number: "02",
+    title: "Clear user experience",
     description:
-      "A thoughtful interface that helps visitors understand your organization and take action.",
-    label: "Purposeful design",
-    icon: Sparkles,
-    points: [
-      "Clear content hierarchy",
-      "Human-centered experience",
-      "Strong calls to action",
-    ],
+      "A content structure that helps visitors understand the organization, its programs, and the actions they can take.",
   },
   {
-    title: "Fast Performance",
+    number: "03",
+    title: "Performance foundation",
     description:
-      "Optimized pages and media that reduce waiting time and improve the visitor experience.",
-    label: "Built for speed",
-    icon: Gauge,
-    points: [
-      "Optimized images",
-      "Efficient page loading",
-      "Smooth interactions",
-    ],
+      "Optimized images, efficient page loading, and a technical foundation focused on a reliable visitor experience.",
   },
   {
-    title: "Basic SEO",
+    number: "04",
+    title: "Search essentials",
     description:
-      "A search-friendly structure that helps people find and understand your organization online.",
-    label: "Ready for search",
-    icon: SearchCheck,
-    points: [
-      "Page metadata",
-      "Semantic headings",
-      "Social sharing previews",
-    ],
+      "Page metadata, semantic headings, and social sharing information prepared for search engines and shared links.",
   },
   {
-    title: "Website Training",
+    number: "05",
+    title: "Website handover",
     description:
-      "Practical guidance for understanding the website and managing its essential content.",
-    label: "Knowledge transfer",
-    icon: GraduationCap,
-    points: [
-      "Website walkthrough",
-      "Content guidance",
-      "Basic management training",
-    ],
+      "A walkthrough of the finished website, content guidance, and basic training for the organization.",
   },
   {
-    title: "Future Scalability",
+    number: "06",
+    title: "Room to grow",
     description:
-      "A reusable foundation prepared for future programs, stories, pages, and digital services.",
-    label: "Ready to grow",
-    icon: BarChart3,
-    points: [
-      "Reusable components",
-      "Expandable page structure",
-      "Clean technical foundation",
-    ],
+      "Reusable components and an expandable structure prepared for future programs, stories, pages, and updates.",
   },
 ];
 
@@ -1294,244 +1257,81 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Section 6: What Organizations Receive */}
-        <section
-          id="features"
-          className="section-spacing brand-gradient-dark relative overflow-hidden text-white"
-        >
-          <div className="hero-grid absolute inset-0 opacity-[0.08]" />
+       {/* Section 6: What Organizations Receive */}
+<section
+  id="features"
+  className="border-y border-white/10 bg-brand-navy text-white"
+>
+  <div className="site-container py-20 sm:py-24 lg:py-28">
+    <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+      
+      {/* Section introduction */}
+      <div className="lg:sticky lg:top-36 lg:self-start">
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-sky">
+          What organizations receive
+        </p>
 
-          <div className="absolute -left-40 top-20 size-[28rem] rounded-full bg-brand-sky/15 blur-3xl" />
+        <h2 className="mt-4 max-w-lg font-heading text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
+          A practical website foundation built around your organization.
+        </h2>
 
-          <div className="absolute -right-40 bottom-0 size-[32rem] rounded-full bg-primary/20 blur-3xl" />
+        <p className="mt-6 max-w-md text-base leading-8 text-white/60">
+          Each selected organization receives the essential design,
+          development, launch, and handover work needed to establish a
+          credible digital presence.
+        </p>
 
-          <div className="site-container relative">
-            <SectionHeading
-              eyebrow="What organizations receive"
-              title="More than a website. A digital home for your mission."
-              description="Every selected organization receives a thoughtful digital foundation designed to build trust, explain its work, and help more people take part."
-              centered
-              inverse
-            />
+        <div className="mt-8 h-px w-16 bg-brand-sky" />
 
-            <Reveal className="mt-7 flex justify-center">
-              <Badge className="rounded-full border-white/10 bg-white/10 px-4 py-2 text-white hover:bg-white/10">
-                <BadgeCheck
-                  className="size-4 text-brand-sky"
-                  aria-hidden="true"
-                />
-                Six essential website foundations
-              </Badge>
-            </Reveal>
+        <p className="mt-6 max-w-md text-sm leading-7 text-white/45">
+          The final scope depends on the organization&apos;s goals, content,
+          project requirements, and agreed website coverage.
+        </p>
+      </div>
 
-            <div className="mt-12 grid auto-rows-auto gap-5 lg:grid-cols-12">
-              {websiteFeatures.map((feature, index) => {
-                const Icon = feature.icon;
+      {/* Deliverables */}
+      <div className="divide-y divide-white/10 border-t border-white/10">
+        {websiteFeatures.map((feature) => (
+          <div
+            key={feature.number}
+            className="grid gap-4 py-7 sm:grid-cols-[64px_1fr] sm:gap-6 sm:py-8"
+          >
+            <span className="font-heading text-sm font-bold text-brand-sky">
+              {feature.number}
+            </span>
 
-                const gridClass =
-                  index === 0
-                    ? "lg:col-span-7 lg:row-span-2"
-                    : index === 1 || index === 2
-                      ? "lg:col-span-5"
-                      : "lg:col-span-4";
+            <div className="grid gap-3 md:grid-cols-[0.75fr_1.25fr] md:gap-8">
+              <h3 className="font-heading text-xl font-bold text-white">
+                {feature.title}
+              </h3>
 
-                return (
-                  <Reveal
-                    key={feature.title}
-                    className={gridClass}
-                    delay={index * 0.04}
-                  >
-                    <motion.div
-                      className="h-full"
-                      whileHover={{
-                        y: -7,
-                      }}
-                      transition={{
-                        duration: 0.25,
-                      }}
-                    >
-                      <Card
-                        className={cn(
-                          "group relative h-full overflow-hidden rounded-3xl border-white/10 bg-white/[0.065] text-white shadow-none backdrop-blur-xl transition-colors hover:border-brand-sky/30 hover:bg-white/[0.095]",
-                          index === 0 && "min-h-[32rem]",
-                        )}
-                      >
-                        <div className="absolute right-0 top-0 size-40 rounded-full bg-brand-sky/10 blur-3xl transition-transform duration-500 group-hover:scale-150" />
-
-                        <CardHeader className="relative p-6 sm:p-7">
-                          <div className="flex items-start justify-between gap-4">
-                            <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-brand-sky">
-                              <Icon
-                                className="size-6"
-                                aria-hidden="true"
-                              />
-                            </span>
-
-                            <Badge className="rounded-full border-white/10 bg-white/[0.07] text-xs text-white/70 hover:bg-white/[0.07]">
-                              {feature.label}
-                            </Badge>
-                          </div>
-
-                          <CardTitle
-                            className={cn(
-                              "pt-5 font-heading font-bold text-white",
-                              index === 0
-                                ? "text-2xl sm:text-3xl"
-                                : "text-xl",
-                            )}
-                          >
-                            {feature.title}
-                          </CardTitle>
-
-                          <CardDescription className="max-w-xl text-base leading-7 text-white/65">
-                            {feature.description}
-                          </CardDescription>
-                        </CardHeader>
-
-                        <CardContent className="relative flex h-full flex-col px-6 pb-6 sm:px-7 sm:pb-7">
-                          <div className="flex flex-wrap gap-2">
-                            {feature.points.map((point) => (
-                              <span
-                                key={point}
-                                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.055] px-3 py-2 text-xs font-medium text-white/75"
-                              >
-                                <Check
-                                  className="size-3.5 text-brand-sky"
-                                  aria-hidden="true"
-                                />
-
-                                {point}
-                              </span>
-                            ))}
-                          </div>
-
-                          {index === 0 ? (
-                            <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-[#061a2c] p-3 shadow-2xl">
-                              <div className="flex items-center gap-2 border-b border-white/10 px-2 pb-3">
-                                <span className="size-2.5 rounded-full bg-[#ff6b6b]" />
-                                <span className="size-2.5 rounded-full bg-[#ffd166]" />
-                                <span className="size-2.5 rounded-full bg-[#36c98f]" />
-
-                                <div className="ml-3 h-7 flex-1 rounded-md bg-white/[0.06]" />
-                              </div>
-
-                              <div className="grid gap-3 pt-3 sm:grid-cols-[1.1fr_0.9fr]">
-                                <div className="rounded-xl bg-white/[0.055] p-5">
-                                  <div className="flex items-center gap-3">
-                                    <div className="relative size-11 overflow-hidden rounded-xl bg-white">
-                                      <Image
-                                        src="/build-basilan-logo.png"
-                                        alt="Build Basilan logo"
-                                        fill
-                                        sizes="44px"
-                                        className="object-contain p-1"
-                                      />
-                                    </div>
-
-                                    <div>
-                                      <div className="h-2.5 w-24 rounded-full bg-white/25" />
-                                      <div className="mt-2 h-2 w-16 rounded-full bg-white/10" />
-                                    </div>
-                                  </div>
-
-                                  <div className="mt-8 h-4 w-full rounded-full bg-white/85" />
-                                  <div className="mt-3 h-4 w-4/5 rounded-full bg-white/85" />
-
-                                  <div className="mt-6 h-10 w-28 rounded-full bg-primary" />
-                                </div>
-
-                                <div className="grid gap-3">
-                                  <div className="brand-gradient rounded-xl p-5">
-                                    <Globe2
-                                      className="size-7 text-white"
-                                      aria-hidden="true"
-                                    />
-
-                                    <div className="mt-10 h-2.5 w-20 rounded-full bg-white/40" />
-                                    <div className="mt-2 h-2.5 w-28 rounded-full bg-white/25" />
-                                  </div>
-
-                                  <div className="rounded-xl border border-white/10 bg-white/[0.055] p-5">
-                                    <Users
-                                      className="size-7 text-brand-sky"
-                                      aria-hidden="true"
-                                    />
-
-                                    <div className="mt-8 flex gap-2">
-                                      <span className="h-2 flex-1 rounded-full bg-brand-sky/45" />
-                                      <span className="h-2 flex-1 rounded-full bg-primary/55" />
-                                      <span className="h-2 flex-1 rounded-full bg-white/15" />
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          ) : (
-                            <div className="mt-8">
-                              <div className="h-px w-full bg-white/10" />
-
-                              <div className="mt-5 flex items-center justify-between">
-                                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-white/35">
-                                  Build Basilan
-                                </span>
-
-                                <ArrowRight
-                                  className="size-5 text-brand-sky transition-transform duration-300 group-hover:translate-x-1"
-                                  aria-hidden="true"
-                                />
-                              </div>
-                            </div>
-                          )}
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  </Reveal>
-                );
-              })}
+              <p className="max-w-xl leading-7 text-white/60">
+                {feature.description}
+              </p>
             </div>
-
-            <Reveal className="mt-6">
-              <Card className="overflow-hidden rounded-3xl border-white/10 bg-white/[0.07] text-white backdrop-blur-xl">
-                <CardContent className="grid items-center gap-6 p-6 sm:p-8 lg:grid-cols-[auto_1fr_auto]">
-                  <span className="flex size-14 items-center justify-center rounded-2xl bg-brand-sky text-brand-navy">
-                    <HeartHandshake
-                      className="size-7"
-                      aria-hidden="true"
-                    />
-                  </span>
-
-                  <div>
-                    <h3 className="font-heading text-xl font-bold text-white sm:text-2xl">
-                      Your mission stays at the center.
-                    </h3>
-
-                    <p className="mt-2 max-w-2xl leading-7 text-white/65">
-                      The website will reflect your organization’s identity, goals,
-                      community, and story. Build Basilan provides the technical
-                      foundation while your organization shapes the message.
-                    </p>
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={handleClosedApplication}
-                    className={cn(
-                      applyButtonClass,
-                      "w-full lg:w-auto",
-                    )}
-                  >
-                    Wait for Next Batch
-
-                    <ArrowRight
-                      className="size-5"
-                      aria-hidden="true"
-                    />
-                  </button>
-                </CardContent>
-              </Card>
-            </Reveal>
           </div>
-        </section>
+        ))}
+      </div>
+    </div>
+
+    {/* Closing statement */}
+    <div className="mt-16 border-t border-white/10 pt-8 lg:ml-[calc(40%+2.5rem)]">
+      <div className="max-w-3xl">
+        <p className="font-heading text-xl font-bold text-white sm:text-2xl">
+          Your organization provides the story. Build Basilan provides the
+          technical foundation.
+        </p>
+
+        <p className="mt-3 max-w-2xl leading-7 text-white/55">
+          Content, identity, programs, goals, and community context come from
+          the organization. The website is developed around those materials,
+          not around a generic template.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
         {/* Section 7: Selection Process */}
         <section
